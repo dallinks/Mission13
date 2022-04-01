@@ -1,11 +1,40 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model List<Bowler>
+@model IQueryable<Bowler>
+
+<!--If there's a team name it lists it as a heading-->
 <h1>Bowlers</h1>
-<ul>
-    @foreach(Bowler b in Model)
-            {
-                <li>@b.BowlerLastName, @b.BowlerFirstName</li>
-            }
-</ul>
+@if (ViewBag.Team == null)
+{
+    <br />
+}
+else
+{
+    <h2>@ViewBag.Team</h2>
+}
+<div class="row m-1 p-1">
+    <div id="types" class="col-3">
+        <vc:teams></vc:teams>
+    </div>
+    <div class="col-9">
+        @foreach (Bowler b in Model)
+        {
+            <!--Lists out the different bowlers that we have-->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">@b.BowlerFirstName @b.BowlerMiddleInit @b.BowlerLastName </h4>
+                    <h6 class="card-text">@b.BowlerAddress</h6>
+                    <h6 class="card-text">@b.BowlerCity, @b.BowlerState @b.BowlerZip</h6>
+                    <h6 class="card-text">@b.BowlerPhoneNumber</h6>
+                    <br />
+                    <a class="btn btn-warning" style="display:unset" asp-controller="Home" asp-action="Edit" asp-route-id="@b.BowlerID">Edit</a>
+                    <a class="btn btn-danger" style="display:unset" asp-controller="Home" asp-action="Delete" asp-route-id="@b.BowlerID">Delete</a>
+
+                </div>
+
+
+            </div>
+        }
+    </div>
+</div>

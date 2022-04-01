@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Mission13.Models.Bowler
+
+<!--Form allowing you to add all of the different attributes for the bowlers-->
+<form method="post" class="form">
+    <div asp-validation-summary="All"></div>
+    <label class="form-label" asp-for="BowlerFirstName">First Name: </label>
+    <input class="form-control" asp-for="BowlerFirstName" />
+
+    <label class="form-label" asp-for="BowlerMiddleInit">Middle Initial: </label>
+    <input class="form-control" asp-for="BowlerMiddleInit" />
+
+    <label class="form-label" asp-for="BowlerLastName">Last Name: </label>
+    <input class="form-control" asp-for="BowlerLastName" />
+
+    <label class="form-label" asp-for="BowlerAddress">Address: </label>
+    <input class="form-control" asp-for="BowlerAddress" />
+
+    <label class="form-label" asp-for="BowlerCity">City: </label>
+    <input class="form-control" asp-for="BowlerCity" />
+
+    <label class="form-label" asp-for="BowlerState">State: </label>
+    <input class="form-control" asp-for="BowlerState" />
+
+    <label class="form-label" asp-for="BowlerZip">Zip: </label>
+    <input class="form-control" asp-for="BowlerZip" />
+
+    <label class="form-label" asp-for="BowlerPhoneNumber">Phone Number: </label>
+    <input class="form-control" asp-for="BowlerPhoneNumber" />
+
+    <label class="form-label" asp-for="TeamID">TeamID: </label>
+    <select class="custom-select" asp-for="TeamID">
+        <option value="">Choose a Team</option>
+        <option value="1">Marlins</option>
+        <option value="2">Sharks</option>
+        <option value="3">Terrapins</option>
+        <option value="4">Barracudas</option>
+        <option value="5">Dolphins</option>
+        <option value="6">Orcas</option>
+        <option value="7">Manatees</option>
+        <option value="8">Swordfish</option>
+        <option value="9">Huckleberrys</option>
+        <option value="10">MintJuleps</option>
+
+    </select>
+    <br />
+
+    <input type="hidden" asp-for="BowlerID" />
+
+    <br />
+
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>

@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Teams>
+
+<!--View Component for the left side of the page. Allows for highlighting of selected attribute.-->
+
+<a class="btn @(ViewBag.TeamName == null ? "btn-primary" : "btn-light btn-outline-secondary") w-100 m-1" asp-controller="Home" asp-action="Index" asp-route-teams="">Home</a>
+
+@foreach (Teams s in Model)
+{
+    <a class="btn @(ViewBag.TeamName == s.TeamID ? "btn-primary" : "btn-light btn-outline-secondary") w-100 m-1" asp-controller="Home" asp-action="Index" asp-route-teams="@s.TeamID">@s.TeamName</a>
+}
